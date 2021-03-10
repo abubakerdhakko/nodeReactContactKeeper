@@ -48,18 +48,36 @@ const ContactState = (props) => {
     <ContactContext.Provider
       value={{
         contacts: state.contacts,
+        addContact,
+        clearContacts
       }}
     >
       {props.children}
     </ContactContext.Provider>
   );
+  // get Contacts
+  function addContact(contact) {
+  
+  
+
+    dispatch({
+      type: 'ADD_CONTACT',
+      payload: contact
+    });
+  } 
+  // clear current
+  function clearContacts() {
+    dispatch({
+      type: 'CLEAR_CONTACTS'
+    });
+  } 
 };
 
 // GET_CONTACTS,
 // ADD_CONTACT,
-const addContact = (contact) => {
-  console.log('addContact', contact);
-};
+
+
+
 // DELETE_CONTACT,
 // SET_CURRENT,
 // CLEAR_CURRENT,

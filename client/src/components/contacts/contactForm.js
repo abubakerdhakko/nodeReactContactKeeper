@@ -8,17 +8,19 @@ const ContactForm = () => {
     type: 'personal',
   });
 
-  const contactContext = useContext(ContactContext);
+  const { addContact, clearContacts } = useContext(ContactContext);
 
   const { name, email, phone, type } = contact;
 
   const onChange = (e) =>
     setContact({ ...contact, [e.target.name]: e.target.value });
 
-  const onSubmit = (e) => { 
+  const onSubmit = (e) => {
     e.preventDefault();
-    ContactContext.addContact(contact);
-    setContact({ name, email, phone, type });
+    addContact(contact);
+    // clearContacts()
+    // console.log('contactbbb', contact)
+    
   };
   return (
     <div>
@@ -39,19 +41,21 @@ const ContactForm = () => {
         ></input>
         <h5>Contact Type</h5>
         <input
-          type="radio"
-          name="type"
-          value="personal"
+          type='radio'
+          name='type'
+          value='personal'
           checked={type === 'personal'}
-        ></input>
-        personal{''}
+          onChange={onChange}
+        />{' '}
+      Personal{' '}
         <input
-          type="radio"
-          name="type"
-          value="perfessional"
-          checked={type === 'perfessional'}
-        ></input>
-        perfessional{''}
+          type='radio'
+          name='type'
+          value='professional'
+          checked={type === 'professional'}
+          onChange={onChange}
+        />{' '}
+      Professional
         <input
           type="submit"
           value="Add Contact"

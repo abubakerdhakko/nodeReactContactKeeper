@@ -29,7 +29,7 @@ const ContactItems = ({ contact }) => {
 };
 
 ContactItems.propType = {
-    contact: PropType.object.isRequired
+  contact: PropType.object.isRequired
 }
 
 export default ContactItems;
