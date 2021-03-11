@@ -15,12 +15,23 @@ const ContactForm = () => {
   const onChange = (e) =>
     setContact({ ...contact, [e.target.name]: e.target.value });
 
+  function clearrr() {
+    setContact({
+      name: '',
+      email: '',
+      phone: '',
+      type: 'personal',
+    });
+
+
+  }
+
   const onSubmit = (e) => {
     e.preventDefault();
     addContact(contact);
-    // clearContacts()
+    clearrr()
     // console.log('contactbbb', contact)
-    
+
   };
   return (
     <div>

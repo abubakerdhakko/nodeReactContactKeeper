@@ -6,11 +6,14 @@ export default (state, action) => {
         ...state,
         contacts: [...state.contacts, action.payload]
       }
-      
+
     case 'CLEAR_CONTACTS':
       return {
-        ...state,
-        contacts: null
+        // ...state,
+        // contacts: null,
+        
+ 
+
       }
     case 'TRANSACTION_ERROR':
       return {
