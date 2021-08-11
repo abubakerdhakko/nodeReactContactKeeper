@@ -53,8 +53,12 @@ const ContactState = (props) => {
       {props.children}
     </ContactContext.Provider>
   );
+<<<<<<< HEAD
   // get Contacts
   function addContact(contact) {
+=======
+};
+>>>>>>> parent of 6e7ddcb (almost done till auth)
 
 // GET_CONTACTS,
 // ADD_CONTACT,

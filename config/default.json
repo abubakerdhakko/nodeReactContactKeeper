@@ -2,3 +2,4 @@
   "mongoURI": "mongodb+srv://abubaker:1129lbudh@contactkeeper-zbgqk.mongodb.net/test?retryWrites=true&w=majority",
   "jwtSecret": "secret"
 }
+
