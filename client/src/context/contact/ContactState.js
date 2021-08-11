@@ -104,21 +104,21 @@ const ContactState = (props) => {
     </ContactContext.Provider>
   );
   // get Contacts
-  function addContact(contact) {
-  
-  
+  // function addContact(contact) {
 
-    dispatch({
-      type: 'ADD_CONTACT',
-      payload: contact
-    });
-  } 
+
+
+  //   dispatch({
+  //     type: 'ADD_CONTACT',
+  //     payload: contact
+  //   });
+  // } 
   // clear current
   function clearContacts() {
     dispatch({
       type: 'CLEAR_CONTACTS'
     });
-  } 
+  }
 };
 
 export default ContactState;
