@@ -353,6 +353,14 @@ table th {
   background: var(--light-color);
 }
 
+.form-container.StyleForm input {
+  margin: 0px 0px 10px 0px;
+}
+.StyleForm input[type="checkbox"] {
+  margin-left: 10px;
+  margin-top: 2px;
+  margin-bottom: 0px;
+}
 /* Navbar */
 .navbar {
   display: flex;

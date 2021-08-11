@@ -9,6 +9,28 @@ const User = require('../models/User');
 // @route    GET api/contacts
 // @desc     Get all contacts
 // @access   Private
+// router.get('/res', function (req, res) {
+// 	res.send('ssssss')
+// 	// do something w/ req.body or req.files 
+// });
+
+router.get('/res', async (req, res) => {
+	await User.find({}, (err, users) => {
+
+		if (err) {
+			return res.status(422).send(err)
+		}
+
+		if (!users) {
+			return res.status(422).send({ error: "No data in the collection" })
+		}
+
+		res.send({ Allusers: users })
+
+	})
+})
+
+
 router.get('/', auth, async (req, res) => {
 	try {
 		const contacts = await Contact.find({ user: req.user.id }).sort({

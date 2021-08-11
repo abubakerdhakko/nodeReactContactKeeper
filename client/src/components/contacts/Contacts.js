@@ -2,17 +2,26 @@ import React, { Fragment, useContext, useEffect } from 'react';
 
 import ContactContext from '../../context/contact/ContactContext';
 import ContactItems from '../contacts/ContactItems';
+import { uuid } from 'uuidv4';
 
 const Contacts = () => {
   const contactContext = useContext(ContactContext);
 
-  const { contacts } = contactContext;
+  const { contacts, filtered, } = contactContext;
 
   return (
     <Fragment>
-      {contacts.map((contact) => (
-        <ContactItems key={contact.id} contact={contact}></ContactItems>
-      ))}
+      {filtered !== null
+        ?
+
+        filtered.map((contact) => (
+          <ContactItems key={uuid()} contact={contact}></ContactItems>
+        ))
+        : contacts.map((contact) => (
+          <ContactItems key={uuid()} contact={contact}></ContactItems>
+        ))
+
+      }
     </Fragment>
   );
 };
