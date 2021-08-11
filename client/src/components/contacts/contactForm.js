@@ -10,17 +10,6 @@ const ContactForm = () => {
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  const { name, email, phone, type } = contact;
-
-=======
->>>>>>> parent of 6e7ddcb (almost done till auth)
-=======
->>>>>>> parent of 6e7ddcb (almost done till auth)
-=======
->>>>>>> parent of 6e7ddcb (almost done till auth)
   const onChange = (e) =>
     setContact({ ...contact, [e.target.name]: e.target.value });
 

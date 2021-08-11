@@ -3,7 +3,7 @@ const router = express.Router();
 const { check, validationResult } = require('express-validator/check');
 const auth = require('../middleware/auth');
 
-const contactModel = require('../models/Contact');
+const Contact = require('../models/Contact');
 const User = require('../models/User');
 const commentModel = require('../models/comment_model');
 
@@ -12,33 +12,60 @@ const commentModel = require('../models/comment_model');
 // @desc     Create a contact comment
 // @access   Private
 // CREATE Comment
-
-
-
-
-
-
-router.post("/:contactId/", [
-    auth], function (req, res) {
-        // res.send('lll')
-
+router.post("/:contactId/comments",
+    [auth,], async (req, res) => {
         // INSTANTIATE INSTANCE OF MODEL
-        const comment = new commentModel(req.body);
+        const comment = new Comment(req.body);
 
-        // SAVE INSTANCE OF Comment MODEL TO DB
-        comment
-            .save()
-            .then(comment => {
-                return contactModel.findById(req.params.contactId);
+        try {
+            // SAVE INSTANCE OF Comment MODEL TO DB
+            comment
+                .save()
+                .then(comment => {
+                    // REDIRECT TO THE ROOT
+                    return contact.findById(req.params.contactId);
+                })
+                .then(post => {
+                    post.comments.unshift(comment);
+                    return post.save();
+                })
+        } catch (err) {
+            
+            console.error(err.message);
+            res.status(500).send('Server Error');
+        }
 
-            })
-            .then(contact => {
-                contact.comments.unshift(comment);
-                return contact.save();
-            })
-
-            .catch(err => {
-                console.log(err);
-            });
     });
+
+
+router.post(
+    '/',
+    [
+        auth,
+
+    ],
+    async (req, res) => {
+
+
+        const { comment } = req.body;
+        res.send('ssss', req.body)
+
+        try {
+            const newComment = new commentModel({
+                comment,
+                contact: req.contact.id
+            });
+            const varComment = await newComment.save();
+
+            res.json(varComment);
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).send('Server Error');
+        }
+    }
+);
+
+
+
+
 module.exports = router;
