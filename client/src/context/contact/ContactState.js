@@ -56,19 +56,17 @@ const ContactState = (props) => {
   // get Contacts
   function addContact(contact) {
 
-
-
-    dispatch({
-      type: 'ADD_CONTACT',
-      payload: contact
-    });
-  } 
-  // clear current
-  function clearContacts() {
-    dispatch({
-      type: 'CLEAR_CONTACTS'
-    });
-  }
+// GET_CONTACTS,
+// ADD_CONTACT,
+const addContact = (contact) => {
+  console.log('addContact', contact);
 };
-
+// DELETE_CONTACT,
+// SET_CURRENT,
+// CLEAR_CURRENT,
+// UPDATE_CONTACT,
+// FILTER_CONTACTS,
+// CLEAR_CONTACTS,
+// CLEAR_FILTER,
+// CONTACT_ERROR,
 export default ContactState;
