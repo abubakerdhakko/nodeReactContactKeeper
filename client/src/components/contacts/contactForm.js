@@ -8,7 +8,7 @@ const ContactForm = () => {
     type: 'personal',
   });
 
-  const contactContext = useContext(ContactContext);
+  const { addContact, clearContacts } = useContext(ContactContext);
 
   const { name, email, phone, type } = contact;
 
@@ -68,11 +68,12 @@ const ContactForm = () => {
         ></input>
         <h5>Contact Type</h5>
         <input
-          type="radio"
-          name="type"
-          value="personal"
+          type='radio'
+          name='type'
+          value='personal'
           checked={type === 'personal'}
           onChange={onChange}
+<<<<<<< HEAD
         >
         </input>
         personal{''}
@@ -85,6 +86,18 @@ const ContactForm = () => {
         >
         </input>
         perfessional{''}
+=======
+        />{' '}
+      Personal{' '}
+        <input
+          type='radio'
+          name='type'
+          value='professional'
+          checked={type === 'professional'}
+          onChange={onChange}
+        />{' '}
+      Professional
+>>>>>>> ee82a4e6013da683936f511fae3301e020080327
         <input
           type="submit"
           value={current ? 'Edit Contact' : 'Add Contact'}

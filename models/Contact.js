@@ -20,6 +20,8 @@ const ContactSchema = new Schema({
 		type: String,
 		default: 'personal'
 	},
+	comments: [{ type: Schema.Types.ObjectId, ref: 'Comment' }],
+
 	date: {
 		type: Date,
 		default: Date.now
